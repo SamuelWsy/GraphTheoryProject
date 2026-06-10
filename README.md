@@ -461,7 +461,7 @@ $$
 当 $N\gg L$，可得到粗略近似
 
 $$
-E[\text{max log profit at length }L]
+E_{[\text{max log profit at length }L]}
 \approx
 \delta L\sqrt{\frac{2}{3}\ln N}.
 $$
@@ -522,15 +522,3 @@ $$
 5. 用随机极值理论为大规模不可计算场景提供理论参考。
 
 整体来看，本项目不是用矩阵方法取代图论，而是用矩阵方法帮助图论算法找到值得精确搜索的局部区域。这一思路既保留了图论的核心对象，也展示了矩阵理论在复杂金融网络中的有效辅助作用。
-
-## 附录：材料来源与文件索引
-
-本报告综合整理了项目目录中的以下材料：
-
-1. `session.md`：前期讨论记录，包含从 SVD、对数权重、拉普拉斯投影到诱导子图策略的理论演进。
-2. `experiment_v7_theory_ratio.py`：最终实验脚本，包含 DFS 最优简单环搜索、Lap/SVD 诱导子图剪枝、随机理论基准与大规模实验。
-3. `experiment_v7_results_2026-06-05.md`：最终实验结果，本文主要采用其中的小规模绝对最优对比和大规模理论比例结果。
-4. `experiment_v6_results_2026-06-05.md`：理论基准迭代版本，包含 Trapped Expectation 诊断表。
-5. `experiment_v5.py`、`experiment_v6_with_trapped_expectation.py`：中间版本，用于理解实验指标从经验最优比例到理论基准比例的演化。
-6. `report_GPTgenerated.md`：旧版报告草稿，本文保留其整体框架，但修正了公式排版、实验口径和部分理论解释。
-7. `outputs/visualization_workbook/` 与 `outputs/v7_structured_workbook/`：Excel 可视化工作簿与预览图，可用于论文或答辩展示。
