@@ -430,11 +430,15 @@ $$
 
 其二阶矩可由
 
-$$
-\int(\ln y)^2dy
+```math
+E[X^2]
 =
-y[(\ln y)^2-2\ln y+2]
-$$
+\frac{1}{2\delta}\int_{1-\delta}^{1+\delta}(\ln y)^2\,dy
+=
+\frac{
+y[(\ln y)^2-2\ln y+2]\big|_{1-\delta}^{1+\delta}
+}{2\delta}.
+```
 
 得到，进而计算标准差 $\sigma_\delta$。代码中的 v6/v7 理论估计器正是使用这一精确矩，而不是只用 $\epsilon\approx X$ 的粗略近似。
 
@@ -472,15 +476,15 @@ $$
 
 当 Trap=True 时，有 4 条特殊边，三条乘以 $1.04$，一条乘以 $0.98$。理论估计不能再只看普通随机边。v6/v7 代码按“环长 $L$ 与包含的 trap 边集合 $J$”分类：
 
-$$
+```math
 z_{L,J}
 =
 \sum_{e\in J}\ln r_e
 +
 (L-|J|)\mu_\delta
 +
-\sqrt{L-|J|}\sigma_\delta\sqrt{2\ln M_{L,J}},
-$$
+\sqrt{L-|J|}\sigma_\delta\sqrt{2\ln M_{L,J}}.
+```
 
 其中 $M_{L,J}$ 是恰好包含指定 trap 边集合的候选环数量。代码通过包含-排除计算这些数量。最后对所有 $L,J$ 取最大值，作为理论参考。
 
